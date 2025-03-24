@@ -1,0 +1,15 @@
+qemu-system-x86_64 \
+  -machine q35 \
+  -m 4G \
+  -smp 4 \
+  -drive if=pflash,format=raw,readonly=on,file=/usr/local/share/qemu/edk2-x86_64-code.fd \
+  -vga virtio \
+  -usb -device usb-tablet \
+  -accel hvf -boot menu=on \
+  -drive file=/dev/disk4,format=raw,if=virtio \
+  -cdrom win10.iso \
+  -drive media=cdrom,file=/Users/aniserrais/Downloads/virtio-win-0.1.266.iso
+
+Notes: 
+ - You can replace /dev/disk4 with a path to a raw disk image directly.
+ - The second cdrom drive needs to be defined differently, as QEMU by default assigns -cdrom to IDE0/slave. Using -drive makes sure that QEMU chooses the first available IDE slot instead.
