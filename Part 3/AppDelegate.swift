@@ -35,9 +35,6 @@ struct MyApp: App {
         configuration.memorySize = 4 * 1024 * 1024 * 1024 // 8 GiB
         
         // Standard UEFI bootloader
-        // Scrap that: non-standard weird bare minimum Apple EFI implementation
-        // This is definitely NOT UEFI.
-        // Linux works fine with pretty much all the hardware though
         let bootLoader = VZEFIBootLoader()
         // NVRAM
         bootLoader.variableStore = try! VZEFIVariableStore(creatingVariableStoreAt: URL(string: "file:///Users/aniserrais/Desktop/vmefi.bin")!, options: VZEFIVariableStore.InitializationOptions.allowOverwrite)
