@@ -11,3 +11,6 @@ See https://leetftw.com/blog/?id=4 for more info.
 ### Part 3 contains:
 - Swift code for Windows VM
 - QEMU command for setting up the VM
+
+### Part 4 contains:
+- Updated Swift code with new devices
